@@ -21,8 +21,8 @@ router.get('/me', isLoggedIn, (req, res, next) => {
 //  POST    '/signup'
 router.post(
   '/signup',
-  isNotLoggedIn(),
-  validationLoggin(),
+  isNotLoggedIn,
+  validationLoggin,
   async (req, res, next) => {
     const { username, password } = req.body;
 
@@ -49,8 +49,8 @@ router.post(
 //  POST    '/login'
 router.post(
   '/login',
-  isNotLoggedIn(),
-  validationLoggin(),
+  isNotLoggedIn,
+  validationLoggin,
   async (req, res, next) => {
     const { username, password } = req.body;
     try {
@@ -86,7 +86,5 @@ router.get('/private', isLoggedIn, (req, res, next) => {
     .status(200) // OK
     .json({ message: 'Test - User is logged in' });
 });
-
-module.exports = router;
 
 module.exports = router;
